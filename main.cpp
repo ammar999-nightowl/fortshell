@@ -67,7 +67,7 @@ int main()
       //child process
       execvp(c_args[0], c_args.data());
       //if exec fails then we get here
-      perror("exec err.");
+      perror("ERROR :");
       exit(1);
     } else if (pid > 0)
     {
