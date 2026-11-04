@@ -6,7 +6,10 @@
 #include <unistd.h> //unix functions
 #include <sys/wait.h> //wait lib. idk about this
 #include <sys/sysinfo.h> //for out custom fetch . fortfetch
-//sadly fortfetch will be aded later
+//sadly fortfetch relies on fastfetch for now
+#include <cstdlib> //for executing fastfetch inside fortfetch
+//credit to fastfetch developers
+// a hats off !!
 
 using namespace std;
 
@@ -16,18 +19,19 @@ int main()
   string command; //the comnand variable
 
   //welcome message
-  cout << "welcome to fort.. the fast shell\n";
-  cout << "by ammar... if you know c++ . please try contributing\n";
+  cout << "=====================================================\n";
+  cout << "#                 FORTSHELL                         #\n";
+  cout << "=====================================================\n";
   while (true)
   {
-    cout << "~/fort > ";
+    cout << "~/fortshell -> ";
     getline(cin, command);
     //handle empty input situation
     if(command.empty()) continue;
     //exit comnand
     if (command == "exit" || command == "Exit" || command == "EXIT" || command == "termquit")
     {
-      cout << "exiting .....\n";
+      cout << "shell successfully exited....\n";
       break;
     }
     if (command == "fortinfo")
@@ -35,6 +39,10 @@ int main()
       cout << "fort v1 . made by ammar\n";
       cout << "fort is a fast simple and easy to use shell\n";
       continue;
+    }
+    if (command == "fortfetch")
+    {
+        int result = system("fastfetch");
     }
     if (command == "help")
     {
