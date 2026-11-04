@@ -14,7 +14,7 @@ int main()
 {
   struct sysinfo si;
   string command; //the comnand variable
-  
+
   //welcome message
   cout << "welcome to fort.. the fast shell\n";
   cout << "by ammar... if you know c++ . please try contributing\n";
@@ -67,7 +67,7 @@ int main()
       //child process
       execvp(c_args[0], c_args.data());
       //if exec fails then we get here
-      perror("ERROR :");
+      perror("FORTSHELL");
       exit(1);
     } else if (pid > 0)
     {
@@ -84,4 +84,3 @@ int main()
   }
   return 0;
 }
-
