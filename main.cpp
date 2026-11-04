@@ -43,6 +43,8 @@ int main()
     if (command == "fortfetch")
     {
         int result = system("fastfetch");
+        //i forgot to continue it
+        continue;
     }
     if (command == "help")
     {
