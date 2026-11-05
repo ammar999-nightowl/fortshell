@@ -15,7 +15,7 @@ using namespace std;
 
 int main()
 {
-  struct sysinfo si;
+
   string command; //the comnand variable
 
   //welcome message
