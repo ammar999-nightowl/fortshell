@@ -62,6 +62,24 @@ int main()
       args.push_back(arg);
 
     }
+    //the built in cd .. yay
+    if (!args.empty() && args[0] == "cd")
+    {
+      if (args.size() < 2)
+      {
+        chdir("~/");
+        cout << "no arguments detected . so switched to home\n";
+
+      } else 
+      {
+        if (chdir(args[1].c_str()) != 0)
+        {
+          perror("oops cd failed...");
+
+        }
+      }
+      continue;
+    }
     //convert this to c style array btw
     vector<char*> c_args;
     for (auto &a: args)
