@@ -36,7 +36,7 @@ int main()
     }
     if (command == "fortinfo")
     {
-      cout << "fort v1 . made by ammar\n";
+      cout << "fort v2 . made by ammar\n";
       cout << "fort is a fast simple and easy to use shell\n";
       continue;
     }
