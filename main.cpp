@@ -67,7 +67,7 @@ int main()
     {
       if (args.size() < 2)
       {
-        chdir("~/");
+        chdir(getenv("HOME"));
         cout << "no arguments detected . so switched to home\n";
 
       } else 
