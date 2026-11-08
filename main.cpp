@@ -9,6 +9,7 @@
 //sadly fortfetch relies on fastfetch for now
 #include <cstdlib> //for executing fastfetch inside fortfetch
 #include <signal.h> //the libs gonna be for ctrl + c protection
+#include <climits> //idk for max hostname ?
 //credit to fastfetch developers
 // a hats off !!
 
@@ -20,13 +21,24 @@ int main()
   string command; //the comnand variable
   //lets disable sigint(ctrl + c)
   signal(SIGINT, SIG_IGN);
+  //lets get the hostname
+  //via unistd.h
+  //declaring a char array with hostnamemax
+  // and + 1. so it has the length for the hostname
+  
+  char hostname[HOST_NAME_MAX + 1];
+  //now lets store the hostname into the array(hostname)
+  //using gethostname function
+  gethostname(hostname, HOST_NAME_MAX + 1);
+  //we have stored the hostname now
+  //you will now see the beutiful name in the prompt
   //welcome message
   cout << "=====================================================\n";
   cout << "#                 FORTSHELL                         #\n";
   cout << "=====================================================\n";
   while (true)
   {
-    cout << "~/fortshell -> ";
+    cout << "host -->" << hostname << "> ";
     getline(cin, command);
     //handle empty input situation
     if(command.empty()) continue;
