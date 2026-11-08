@@ -8,6 +8,7 @@
 #include <sys/sysinfo.h> //for out custom fetch . fortfetch
 //sadly fortfetch relies on fastfetch for now
 #include <cstdlib> //for executing fastfetch inside fortfetch
+#include <signal.h> //the libs gonna be for ctrl + c protection
 //credit to fastfetch developers
 // a hats off !!
 
@@ -17,7 +18,8 @@ int main()
 {
 
   string command; //the comnand variable
-
+  //lets disable sigint(ctrl + c)
+  signal(SIGINT, SIG_IGN);
   //welcome message
   cout << "=====================================================\n";
   cout << "#                 FORTSHELL                         #\n";
@@ -92,10 +94,13 @@ int main()
     pid_t pid = fork();
     if (pid == 0)
     {
+      //setting ctrl + c behaviour to default. execvp is lazy
+      //default for child. the parent ignores ctrl + c
+      signal(SIGINT, SIG_DFL);
       //child process
       execvp(c_args[0], c_args.data());
       //if exec fails then we get here
-      perror("FORTSHELL");
+      perror("forterr");
       exit(1);
     } else if (pid > 0)
     {
