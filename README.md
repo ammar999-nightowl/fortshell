@@ -8,10 +8,10 @@ that you can compile in 3 seconds and then edit
 again and compile , then fortshell is a simple **choice**
 
 # key features
-extremely lightwheight !
-can modify the source code and recompile using
-*gcc* or *clang*
-and apply the new version you made yourself !!
+*extremely lightwheight. fast on old systems*
+*supports cd command*
+*some custom commands*
+*shell dosent terminate, if the user presses ctrl + c*
 
 # author 
 md ammar ali
