@@ -9,7 +9,6 @@
 //sadly fortfetch relies on fastfetch for now
 #include <cstdlib> //for executing fastfetch inside fortfetch
 #include <signal.h> //the libs gonna be for ctrl + c protection
-#include <climits> //idk for max hostname ?
 //credit to fastfetch developers
 // a hats off !!
 
@@ -38,7 +37,7 @@ int main()
   cout << "=====================================================\n";
   while (true)
   {
-    cout << "host -->" << hostname << "> ";
+    cout << hostname << "> ";
     getline(cin, command);
     //handle empty input situation
     if(command.empty()) continue;
