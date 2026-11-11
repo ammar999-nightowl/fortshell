@@ -14,6 +14,21 @@
 
 using namespace std;
 
+void printwelcomemessage()
+{
+  cout << "welcome to fortshell\n";
+  cout << "the fast and simple shell\n";
+  cout << "we reccomend you check out other shells, if this one feels boring\n";
+  cout << "or stay here if you can live without lazy features\n";
+  cout << "there is also a shell named fortsh\n";
+  cout << "we are not assiociated with fortsh nor any other shell\n";
+  cout << "our shell is fortshell . thats it. its open source too !!\n";
+  cout << "email of author : mdammarali.4888@gmail.com\n";
+  cout << "phone of authors mom : 9674447471\n";
+  cout << "i am a minor. how can i have a sim?\n";
+  cout << "enjoy the shell bro\n";
+}
+
 int main()
 {
 
@@ -32,9 +47,8 @@ int main()
   //we have stored the hostname now
   //you will now see the beutiful name in the prompt
   //welcome message
-  cout << "=====================================================\n";
-  cout << "#                 FORTSHELL                         #\n";
-  cout << "=====================================================\n";
+  printwelcomemessage();
+  //now the while loop
   while (true)
   {
     cout << hostname << "> ";
@@ -122,7 +136,7 @@ int main()
     else
     {
       //fork failed ... you will get an A later bro
-      perror("oops fork failed. shit");
+      perror("fork failed. due to >> ");
 
     }
   }
