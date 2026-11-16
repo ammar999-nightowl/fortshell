@@ -1,3 +1,5 @@
+#include <asm-generic/signal.h>
+#include <csignal>
 #include <iostream>  //basic io functions
 #include <sstream> //string stream classes btw
 #include <vector> //vector is a dymamic memory block like thingy.
@@ -16,17 +18,14 @@ using namespace std;
 
 void printwelcomemessage()
 {
-  cout << "welcome to fortshell\n";
-  cout << "the fast and simple shell\n";
-  cout << "we reccomend you check out other shells, if this one feels boring\n";
-  cout << "or stay here if you can live without lazy features\n";
-  cout << "there is also a shell named fortsh\n";
-  cout << "we are not assiociated with fortsh nor any other shell\n";
-  cout << "our shell is fortshell . thats it. its open source too !!\n";
-  cout << "email of author : mdammarali.4888@gmail.com\n";
-  cout << "phone of authors mom : 9674447471\n";
-  cout << "i am a minor. how can i have a sim?\n";
-  cout << "enjoy the shell bro\n";
+  const char* banner = R"(  __            _       _          _ _
+ / _| ___  _ __| |_ ___| |__   ___| | |
+| |_ / _ \| '__| __/ __| '_ \ / _ \ | |
+|  _| (_) | |  | |_\__ \ | | |  __/ | |
+|_|  \___/|_|   \__|___/_| |_|\___|_|_|
+)";
+
+cout << banner << endl;
 }
 
 int main()
@@ -35,6 +34,7 @@ int main()
   string command; //the comnand variable
   //lets disable sigint(ctrl + c)
   signal(SIGINT, SIG_IGN);
+  signal(SIGKILL, SIG_IGN);
   //lets get the hostname
   //via unistd.h
   //declaring a char array with hostnamemax
@@ -122,6 +122,7 @@ int main()
       //setting ctrl + c behaviour to default. execvp is lazy
       //default for child. the parent ignores ctrl + c
       signal(SIGINT, SIG_DFL);
+      signal(SIGKILL, SIG_DFL);
       //child process
       execvp(c_args[0], c_args.data());
       //if exec fails then we get here
